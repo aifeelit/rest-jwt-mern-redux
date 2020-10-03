@@ -17,7 +17,7 @@ router.get('/', function(req, res){
 	res.send('register')
 })
 
-router.post('/', function(req,res){
+router.post('/authuser', function(req,res){
 	const {email, password} = req.body
 	if(!email || !password)	return res.status(400).json({msg:"please enter all"})
 	User.findOne({email}).then(user => {
