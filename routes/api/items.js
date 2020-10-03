@@ -14,14 +14,14 @@ router.get('/items', function(req, res){
 	.then(items => res.json(items))
 })
 
-router.post('/', auth, function(req,res){
+router.post('/items', auth, function(req,res){
 	var newItem = new Item({
 		name:req.body.name,
 	})
   newItem.save().then(item => res.json(item)) 
 })
 
-router.delete('/:_id', auth, function(req,res){
+router.delete('/items/:_id', auth, function(req,res){
 	Item.findById(req.params._id)
 	.then(item => item.remove()
 		.then(()=>res.json({success:true})))
