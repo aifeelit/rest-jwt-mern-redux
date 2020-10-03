@@ -8,7 +8,7 @@ const app = express()
 
 app.use(cors());
 
-router.get('/', function(req, res){
+router.get('/items', function(req, res){
 	Item.find()
 	.sort({date : -1})
 	.then(items => res.json(items))
