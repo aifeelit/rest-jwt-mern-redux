@@ -18,7 +18,7 @@ router.get('/', function(req, res){
 	res.send('register')
 })
 
-router.post('/', function(req,res){
+router.post('/user', function(req,res){
 	const {name, email, password} = req.body
 	if(!name || !email || !password){
 		return res.status(400).json({msg:"please enter all"})
